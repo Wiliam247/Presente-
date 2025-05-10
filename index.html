@@ -12,18 +12,18 @@
             pointer-events: none;
             animation: float 6s ease-in-out infinite;
         }
-        
+
         @keyframes float {
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
             100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
-        
+
         .romantic-bg {
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ffebee" d="M30,20 Q50,0 70,20 Q90,40 50,80 Q10,40 30,20 Z"/></svg>');
             background-size: 100px;
             background-repeat: repeat;
         }
-        
+
         .popup {
             display: none;
             position: fixed;
@@ -36,7 +36,7 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         .popup-content {
             width: 80%;
             max-width: 400px;
@@ -45,12 +45,12 @@
             text-align: center;
             animation: pop 0.3s ease-out;
         }
-        
+
         @keyframes pop {
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
-        
+
         .button-frame {
             border: 3px solid #f472b6;
             border-radius: 15px;
@@ -66,7 +66,7 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         .buttons-container {
             position: relative;
             width: 100%;
@@ -76,30 +76,30 @@
             align-items: center;
             gap: 80px;
         }
-        
+
         .melt {
             animation: melt 2s forwards;
         }
-        
+
         @keyframes melt {
             0% { transform: scale(1); opacity: 1; }
             100% { transform: scale(0.1) translateY(200px); opacity: 0; }
         }
-        
+
         .shake {
             animation: shake 0.5s;
         }
-        
+
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
             20%, 40%, 60%, 80% { transform: translateX(10px); }
         }
-        
+
         .final-page {
             background: linear-gradient(135deg, #fff5f5 0%, #ffecec 100%);
         }
-        
+
         .couple-photo {
             width: 300px;
             height: 300px;
@@ -111,16 +111,15 @@
     </style>
 </head>
 <body class="bg-pink-50 font-sans">
-    <!-- Initial Screen -->
     <div id="initialScreen" class="min-h-screen flex flex-col items-center justify-center p-4">
         <div class="text-center mb-12">
             <h1 class="text-3xl md:text-4xl font-bold text-pink-600 mb-4">ESSE É UM PRESENTE MUITO EXCLUSIVO E ESPECIAL</h1>
             <p class="text-xl md:text-2xl text-pink-500">TEM CERTEZA QUE DESEJA ABRI-LO??</p>
         </div>
-        
+
         <div class="button-frame">
             <div class="buttons-container">
-                <button id="yesBtn" class="px-8 py-4 bg-green-500 hover:bg-green-600 text-white text-xl font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl relative">
+                <button id="yesBtn" class="px-8 py-4 bg-green-500 hover:bg-green-600 text-white text-xl font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl relative" style="transition: transform 0.2s ease-out;">
                     SIM
                 </button>
                 <button id="noBtn" class="px-8 py-4 bg-red-500 hover:bg-red-600 text-white text-xl font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -129,12 +128,11 @@
             </div>
         </div>
     </div>
-    
-    <!-- Identity Check Part 1 -->
+
     <div id="identityCheck1" class="min-h-screen flex flex-col items-center justify-center p-4 hidden">
         <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md text-center">
             <h2 class="text-2xl font-bold text-pink-600 mb-8">SEU NOME É LETICIA MIRANDA?</h2>
-            
+
             <div class="flex justify-center gap-8">
                 <button id="yesIdentity1" class="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition">
                     SIM
@@ -145,12 +143,11 @@
             </div>
         </div>
     </div>
-    
-    <!-- Identity Check Part 2 -->
+
     <div id="identityCheck2" class="min-h-screen flex flex-col items-center justify-center p-4 hidden">
         <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md text-center">
             <h2 class="text-2xl font-bold text-pink-600 mb-8">TEM CERTEZA QUE SEU NOME É LETICIA OLIVEIRA MIRANDA?</h2>
-            
+
             <div class="flex justify-center gap-8">
                 <button id="yesIdentity2" class="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition">
                     SIM
@@ -161,100 +158,96 @@
             </div>
         </div>
     </div>
-    
-    <!-- Form Page 1 -->
+
     <div id="formPage1" class="min-h-screen flex flex-col items-center justify-center p-4 hidden">
         <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md relative overflow-hidden">
             <div class="absolute top-2 right-2 bg-pink-500 text-white px-2 py-1 rounded text-xs">Página 1/22</div>
-            
+
             <h1 class="text-2xl font-bold text-center mb-2 text-pink-600">Formulário Especial</h1>
             <p class="text-center text-gray-600 mb-6">SE VOCÊ REALMENTE É ELA, PREENCHA O PEQUENO FORMULÁRIO DE 22 PÁGINAS ABAIXO:</p>
-            
+
             <div class="space-y-4">
                 <div>
                     <label class="block text-gray-700 mb-2">Primeiro nome:</label>
                     <input type="text" id="firstName" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
-                
+
                 <div>
                     <label class="block text-gray-700 mb-2">Segundo nome:</label>
                     <input type="text" id="middleName" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
-                
+
                 <div>
                     <label class="block text-gray-700 mb-2">Terceiro nome:</label>
                     <input type="text" id="lastName" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
-                
+
                 <div>
                     <label class="block text-gray-700 mb-2">Idade:</label>
                     <input type="number" id="age" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
-                
+
                 <div>
                     <label class="block text-gray-700 mb-2">Nível de beleza (0 a 10):</label>
                     <input type="number" id="beautyLevel" min="0" max="10" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
-                
+
                 <button id="nextPageBtn" disabled class="w-full bg-gray-400 text-white py-2 rounded cursor-not-allowed">Próxima Página</button>
             </div>
         </div>
     </div>
-    
-    <!-- Form Page 2 -->
+
     <div id="formPage2" class="min-h-screen flex flex-col items-center justify-center p-4 hidden">
         <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md relative overflow-hidden">
             <div class="absolute top-2 right-2 bg-pink-500 text-white px-2 py-1 rounded text-xs">Página 2/2</div>
-            
+
             <h1 class="text-2xl font-bold text-center mb-2 text-pink-600">Formulário Especial</h1>
             <p class="text-center text-gray-600 mb-6">BRINCADEIRA, SÃO SÓ 2 PÁGINAS.</p>
-            
+
             <div class="space-y-4">
                 <div>
                     <label class="block text-gray-700 mb-2">Nome completo:</label>
                     <input type="text" id="fullName" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
-                
+
                 <div>
                     <label class="block text-gray-700 mb-2">Nome da pessoa que você mais gosta no mundo, só que não:</label>
                     <input type="text" id="favoritePerson" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
-                
+
                 <div>
                     <label class="block text-gray-700 mb-2">Nome do professor mais legal:</label>
                     <input type="text" id="bestTeacher" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
-                
+
                 <div>
                     <label class="block text-gray-700 mb-2">Você quer mesmo abrir esse presente?</label>
                     <input type="text" id="openGift" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
-                
+
                 <button id="finishBtn" class="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded">Finalizar</button>
             </div>
         </div>
     </div>
-    
-    <!-- Final Page -->
+
     <div id="finalPage" class="min-h-screen flex flex-col md:flex-row items-center justify-center p-8 gap-8 hidden final-page">
         <div class="flex flex-col items-center md:items-end text-center md:text-right md:w-1/3">
             <p class="text-xl md:text-2xl text-pink-800 mb-6 max-w-md">
                 "Eu nem imaginava o quão importante você se tornaria pra mim, e em pouco tempo percebi que você é simplesmente maravilhosa e é exatamente a pessoa que eu esperava conhecer, obrigado por ser você!!!" ❤️
             </p>
         </div>
-        
+
         <div class="flex justify-center">
             <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Couple photo" class="couple-photo">
         </div>
-        
+
         <div class="flex flex-col items-center md:items-start text-center md:text-left md:w-1/3">
             <p class="text-3xl md:text-4xl font-bold text-pink-600 mb-6">
                 "TE AMO MUITO!!" 💖
             </p>
         </div>
     </div>
-    
-    <!-- Error Popups -->
+
     <div id="errorPopup" class="popup">
         <div class="popup-content bg-red-100 border-l-4 border-red-500 text-red-700">
             <h3 class="text-xl font-bold mb-2">ERRADO!</h3>
@@ -262,7 +255,7 @@
             <button id="errorOkBtn" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">OK</button>
         </div>
     </div>
-    
+
     <div id="successPopup" class="popup">
         <div class="popup-content bg-blue-100 border-l-4 border-blue-500 text-blue-700">
             <h3 class="text-xl font-bold mb-2">Olha de novo</h3>
@@ -270,7 +263,7 @@
             <button id="successOkBtn" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">OK</button>
         </div>
     </div>
-    
+
     <div id="liePopup1" class="popup">
         <div class="popup-content bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700">
             <h3 class="text-xl font-bold mb-2">Hmm... MENTIRA!</h3>
@@ -278,7 +271,7 @@
             <button id="lieOkBtn1" class="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">OK</button>
         </div>
     </div>
-    
+
     <div id="liePopup2" class="popup">
         <div class="popup-content bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700">
             <h3 class="text-xl font-bold mb-2">Eita! Mentira...</h3>
@@ -286,7 +279,7 @@
             <button id="lieOkBtn2" class="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">OK</button>
         </div>
     </div>
-    
+
     <div id="formErrorPopup" class="popup">
         <div class="popup-content bg-red-100 border-l-4 border-red-500 text-red-700">
             <h3 class="text-xl font-bold mb-2">ERRADO! 😜</h3>
@@ -294,7 +287,7 @@
             <button id="formErrorOkBtn" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">OK</button>
         </div>
     </div>
-    
+
     <div id="finalErrorPopup" class="popup">
         <div class="popup-content bg-red-100 border-l-4 border-red-500 text-red-700">
             <h3 class="text-xl font-bold mb-2">NÃO??</h3>
@@ -302,7 +295,7 @@
             <button id="finalErrorOkBtn" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">OK</button>
         </div>
     </div>
-    
+
     <div id="finalSuccessPopup" class="popup">
         <div class="popup-content bg-blue-100 border-l-4 border-blue-500 text-blue-700">
             <h3 class="text-xl font-bold mb-2">HMMM</h3>
@@ -310,7 +303,7 @@
             <button id="finalSuccessOkBtn" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">OK</button>
         </div>
     </div>
-    
+
     <script>
         // Initial Screen Logic
         const initialScreen = document.getElementById('initialScreen');
@@ -319,28 +312,29 @@
         const formPage1 = document.getElementById('formPage1');
         const formPage2 = document.getElementById('formPage2');
         const finalPage = document.getElementById('finalPage');
-        
+
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
         const buttonFrame = document.querySelector('.button-frame');
         const buttonsContainer = document.querySelector('.buttons-container');
-        
+
         let clickCount = 0;
+        const maxClicks = 6;
+        let moveCounter = 0;
         const positions = [
             { x: -50, y: -30 },
             { x: 50, y: -30 },
             { x: -50, y: 30 },
             { x: 50, y: 30 },
-            { x: 0, y: 0 },
-            { x: 0, y: 0 }
+            { x: -20, y: 0 },
+            { x: 20, y: 0 }
         ];
-        
-        // Calculate maximum movement area
+
         function getMovementArea() {
             const frameRect = buttonFrame.getBoundingClientRect();
             const containerRect = buttonsContainer.getBoundingClientRect();
             const btnRect = yesBtn.getBoundingClientRect();
-            
+
             return {
                 maxLeft: containerRect.left - frameRect.left,
                 maxRight: frameRect.right - containerRect.right - btnRect.width,
@@ -348,73 +342,78 @@
                 maxBottom: frameRect.bottom - containerRect.bottom - btnRect.height
             };
         }
-        
+
         yesBtn.addEventListener('mouseover', function() {
-            if (clickCount < 6) {
+            if (moveCounter < maxClicks) {
                 const movementArea = getMovementArea();
-                const pos = positions[clickCount % positions.length];
-                
-                // Limit movement to stay within frame
+                const pos = positions[moveCounter % positions.length];
+
                 const limitedX = Math.max(movementArea.maxLeft, Math.min(pos.x, movementArea.maxRight));
                 const limitedY = Math.max(movementArea.maxTop, Math.min(pos.y, movementArea.maxBottom));
-                
+
                 this.style.transform = `translate(${limitedX}px, ${limitedY}px)`;
-                clickCount++;
+                moveCounter++;
             }
         });
-        
+
         yesBtn.addEventListener('click', function() {
-            if (clickCount >= 6) {
+            if (moveCounter >= maxClicks) {
                 initialScreen.classList.add('hidden');
                 identityCheck1.classList.remove('hidden');
+            } else {
+                // Optional: Add a shake animation or message if clicked too early
+                this.classList.add('shake');
+                setTimeout(() => {
+                    this.classList.remove('shake');
+                }, 500);
             }
         });
-        
+
         noBtn.addEventListener('click', function() {
             this.classList.add('melt');
             setTimeout(() => {
                 this.style.display = 'none';
             }, 2000);
         });
-        
+
         // Identity Check Part 1
         const yesIdentity1 = document.getElementById('yesIdentity1');
         const noIdentity1 = document.getElementById('noIdentity1');
         const liePopup1 = document.getElementById('liePopup1');
         const lieOkBtn1 = document.getElementById('lieOkBtn1');
-        
+
         yesIdentity1.addEventListener('click', function() {
             identityCheck1.classList.add('hidden');
             identityCheck2.classList.remove('hidden');
         });
-        
+
         noIdentity1.addEventListener('click', function() {
             liePopup1.style.display = 'flex';
         });
-        
+
         lieOkBtn1.addEventListener('click', function() {
             liePopup1.style.display = 'none';
         });
-        
+
         // Identity Check Part 2
         const yesIdentity2 = document.getElementById('yesIdentity2');
         const noIdentity2 = document.getElementById('noIdentity2');
         const liePopup2 = document.getElementById('liePopup2');
         const lieOkBtn2 = document.getElementById('lieOkBtn2');
-        
+
         yesIdentity2.addEventListener('click', function() {
             identityCheck2.classList.add('hidden');
             formPage1.classList.remove('hidden');
         });
-        
+
         noIdentity2.addEventListener('click', function() {
             liePopup2.style.display = 'flex';
         });
-        
+
         lieOkBtn2.addEventListener('click', function() {
             liePopup2.style.display = 'none';
         });
-        
+
         // Form Page 1 Logic
         const firstName = document.getElementById('firstName');
         const middleName = document.getElementById('middleName');
@@ -428,13 +427,13 @@
         const errorOkBtn = document.getElementById('errorOkBtn');
         const successOkBtn = document.getElementById('successOkBtn');
         const formErrorOkBtn = document.getElementById('formErrorOkBtn');
-        
+
         function checkForm1() {
             const isFirstNameCorrect = firstName.value.trim().toUpperCase() === 'LETICIA';
             const isMiddleNameCorrect = middleName.value.trim().toUpperCase() === 'OLIVEIRA';
             const isLastNameCorrect = lastName.value.trim().toUpperCase() === 'MIRANDA';
             const isAgeCorrect = parseInt(age.value) === 15;
-            
+
             if (isFirstNameCorrect && isMiddleNameCorrect && isLastNameCorrect && isAgeCorrect) {
                 nextPageBtn.disabled = false;
                 nextPageBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');
@@ -445,38 +444,38 @@
                 nextPageBtn.classList.remove('bg-pink-500', 'hover:bg-pink-600', 'cursor-pointer');
             }
         }
-        
+
         firstName.addEventListener('input', checkForm1);
         middleName.addEventListener('input', checkForm1);
         lastName.addEventListener('input', checkForm1);
         age.addEventListener('input', checkForm1);
-        
+
         beautyLevel.addEventListener('change', function() {
             const value = parseInt(this.value);
             if (value >= 0 && value <= 10) {
                 errorPopup.style.display = 'flex';
             }
         });
-        
+
         errorOkBtn.addEventListener('click', function() {
             errorPopup.style.display = 'none';
             setTimeout(() => {
                 successPopup.style.display = 'flex';
             }, 300);
         });
-        
+
         successOkBtn.addEventListener('click', function() {
             beautyLevel.value = '99999999';
             successPopup.style.display = 'none';
             checkForm1();
         });
-        
+
         nextPageBtn.addEventListener('click', function() {
             const isFirstNameCorrect = firstName.value.trim().toUpperCase() === 'LETICIA';
             const isMiddleNameCorrect = middleName.value.trim().toUpperCase() === 'OLIVEIRA';
             const isLastNameCorrect = lastName.value.trim().toUpperCase() === 'MIRANDA';
             const isAgeCorrect = parseInt(age.value) === 15;
-            
+
             if (isFirstNameCorrect && isMiddleNameCorrect && isLastNameCorrect && isAgeCorrect) {
                 formPage1.classList.add('hidden');
                 formPage2.classList.remove('hidden');
@@ -484,11 +483,11 @@
                 formErrorPopup.style.display = 'flex';
             }
         });
-        
+
         formErrorOkBtn.addEventListener('click', function() {
             formErrorPopup.style.display = 'none';
         });
-        
+
         // Form Page 2 Logic
         const fullName = document.getElementById('fullName');
         const favoritePerson = document.getElementById('favoritePerson');
@@ -499,14 +498,14 @@
         const finalSuccessPopup = document.getElementById('finalSuccessPopup');
         const finalErrorOkBtn = document.getElementById('finalErrorOkBtn');
         const finalSuccessOkBtn = document.getElementById('finalSuccessOkBtn');
-        
+
         finishBtn.addEventListener('click', function() {
             const isFullNameCorrect = fullName.value.trim().toUpperCase() === 'LETICIA OLIVEIRA MIRANDA';
             const isFavoritePersonCorrect = favoritePerson.value.trim().toUpperCase() === 'LARA';
-            const isBestTeacherCorrect = bestTeacher.value.trim().toUpperCase() === 'LEO' || 
-                                         bestTeacher.value.trim().toUpperCase() === 'LEONARDO';
+            const isBestTeacherCorrect = bestTeacher.value.trim().toUpperCase() === 'LEO' ||
+                                            bestTeacher.value.trim().toUpperCase() === 'LEONARDO';
             const isOpenGiftCorrect = openGift.value.trim().toUpperCase() === 'SIM';
-            
+
             if (isFullNameCorrect && isFavoritePersonCorrect && isBestTeacherCorrect) {
                 if (isOpenGiftCorrect) {
                     finalSuccessPopup.style.display = 'flex';
@@ -517,48 +516,43 @@
                 formErrorPopup.style.display = 'flex';
             }
         });
-        
+
         finalErrorOkBtn.addEventListener('click', function() {
             openGift.value = 'NÃO';
             finalErrorPopup.style.display = 'none';
         });
-        
+
         finalSuccessOkBtn.addEventListener('click', function() {
-            finalSuccessPopup.style.display = 'none'; // This line was added to hide the popup
+            finalSuccessPopup.style.display = 'none';
             formPage2.classList.add('hidden');
             finalPage.classList.remove('hidden');
             createHearts();
         });
-        
+
         // Create floating hearts for final page
         function createHearts() {
             const colors = ['#ff0000', '#ff69b4', '#ff1493', '#ff00ff', '#ff6347'];
-            
+
             setInterval(() => {
                 const heart = document.createElement('div');
                 heart.innerHTML = '❤️';
                 heart.classList.add('heart');
-                
-                // Random position
+
                 const startX = Math.random() * window.innerWidth;
                 heart.style.left = `${startX}px`;
                 heart.style.bottom = '-50px';
-                
-                // Random size
+
                 const size = Math.random() * 30 + 20;
                 heart.style.fontSize = `${size}px`;
-                
-                // Random color
+
                 const color = colors[Math.floor(Math.random() * colors.length)];
                 heart.style.color = color;
-                
-                // Random animation duration
+
                 const duration = Math.random() * 6 + 4;
                 heart.style.animationDuration = `${duration}s`;
-                
+
                 document.body.appendChild(heart);
-                
-                // Remove heart after animation
+
                 setTimeout(() => {
                     heart.remove();
                 }, duration * 1000);
