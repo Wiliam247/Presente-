@@ -7,15 +7,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .heart {
+        .iconFloat {
             position: absolute;
             pointer-events: none;
             animation: float 6s ease-in-out infinite;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        
+@keyframes floatSpin {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        filter: drop-shadow(0 0 2px #fff);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.iconFloat {
+    position: absolute;
+    pointer-events: none;
+    animation: floatSpin 6s ease-in-out infinite;
+    will-change: transform, opacity;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
 
         .romantic-bg {
@@ -113,7 +131,7 @@
 <body class="bg-pink-50 font-sans">
     <div id="initialScreen" class="min-h-screen flex flex-col items-center justify-center p-4">
         <div class="text-center mb-12">
-            <h1 class="text-3xl md:text-4xl font-bold text-pink-600 mb-4">ESSE É UM PRESENTE MUITO EXCLUSIVO E ESPECIAL</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-pink-600 mb-4">ESTE É UM PRESENTE MUITO EXCLUSIVO E ESPECIAL</h1>
             <p class="text-xl md:text-2xl text-pink-500">TEM CERTEZA QUE DESEJA ABRI-LO??</p>
         </div>
 
@@ -188,7 +206,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-gray-700 mb-2">Nível de beleza (0 a 10):</label>
+                    <label class="block text-gray-700 mb-2">Nivel de incrívelidade (inventei a palavra kkkkk) (0 a 10)::</label>
                     <input type="number" id="beautyLevel" min="0" max="10" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
 
@@ -230,8 +248,7 @@
         </div>
     </div>
 
-    <div id="finalPage" class="min-h-screen flex flex-col items-center justify-center p-8 gap-8 final-page hidden">
-    <!-- Texto de Feliz Aniversário -->
+    <div id="finalPage" class="min-h-screen flex flex-col items-center justify-center p-8 gap-8 hidden final-page">
     <div class="text-center max-w-2xl">
         <p class="text-3xl md:text-4xl font-bold text-pink-600 mb-6">
             "Feliz Aniversário (1 dia atrasado, kkk). Eu quero aproveitar esse momento especial na sua vida e te agradecer por tudo o que você já fez por mim. Eu mudei positivamente depois
@@ -240,15 +257,34 @@
         </p>
     </div>
 
-    <!-- Imagem -->
     <div class="flex justify-center">
         <img src="https://i.postimg.cc/1zT1Xrzh/Especial.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Couple photo" class="couple-photo">
     </div>
 
-    <!-- Texto final -->
     <div class="text-center max-w-md">
         <p class="text-xl md:text-2xl text-pink-800">
-            "Tudo de Bom, continue sendo quem você sempre foi!"
+            "Tudo de Bom, continue sendo quem você sempre foi!
+
+
+
+
+
+            
+                               
+            
+                                                SURPRESA!            
+                                                    |
+                                                    |
+                                                    |
+                                                    |
+                                                    |
+                                                    V
+           1° Tem um Gift Card disponível para você! Use o código NAA2VPL6FYL3MCDV em Netflix e aproveite seu crédito.
+                                 https://www.netflix.com/br/redeem
+
+
+          2° https://drive.google.com/file/d/1ICWNNCNs51xp4NtGzbrX4fOls__9iZ_f/view?usp=sharing "
+            
         </p>
     </div>
 </div>
@@ -381,7 +417,38 @@
             }, 2000);
         });
 
-        // Identity Check Part 1
+        
+// Animação de ícones de aniversário flutuando
+function createBirthdayIcons() {
+    const icons = ['🎂', '🎉', '🎈', '🎁', '🍰', '🥳', '🎊'];
+
+    setInterval(() => {
+        const icon = document.createElement('div');
+        icon.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+        icon.classList.add('iconFloat');
+
+        const startX = Math.random() * window.innerWidth;
+        icon.style.left = `${startX}px`;
+        icon.style.bottom = '-50px';
+
+        const size = Math.random() * 30 + 20;
+        icon.style.fontSize = `${size}px`;
+
+        icon.style.color = '#ff66c4';
+
+        const duration = Math.random() * 6 + 4;
+        icon.style.animationDuration = `${duration}s`;
+
+        document.body.appendChild(icon);
+
+        setTimeout(() => {
+            icon.remove();
+        }, duration * 1000);
+    }, 250);
+}
+
+
+// Identity Check Part 1
         const yesIdentity1 = document.getElementById('yesIdentity1');
         const noIdentity1 = document.getElementById('noIdentity1');
         const liePopup1 = document.getElementById('liePopup1');
@@ -508,7 +575,7 @@
             const isFullNameCorrect = fullName.value.trim().toUpperCase() === 'LETICIA OLIVEIRA MIRANDA';
             const isFavoritePersonCorrect = favoritePerson.value.trim().toUpperCase() === 'LARA';
             const isBestTeacherCorrect = bestTeacher.value.trim().toUpperCase() === 'LEO' ||
-                                            bestTeacher.value.trim().toUpperCase() === 'LEONARDO';
+                                         bestTeacher.value.trim().toUpperCase() === 'LEONARDO';
             const isOpenGiftCorrect = openGift.value.trim().toUpperCase() === 'SIM';
 
             if (isFullNameCorrect && isFavoritePersonCorrect && isBestTeacherCorrect) {
@@ -527,42 +594,48 @@
             finalErrorPopup.style.display = 'none';
         });
 
-        finalSuccessOkBtn.addEventListener('click', function() {
+        
+finalSuccessOkBtn.addEventListener('click', function() {
+    document.getElementById("partySound").play();
+
             finalSuccessPopup.style.display = 'none';
             formPage2.classList.add('hidden');
             finalPage.classList.remove('hidden');
-            createHearts();
+            createBirthdayIcons();
         });
 
-        // Create floating hearts for final page
-        function createHearts() {
+        // Create floating iconFloats for final page
+        function createIconFloats() {
             const colors = ['#ff0000', '#ff69b4', '#ff1493', '#ff00ff', '#ff6347'];
 
             setInterval(() => {
-                const heart = document.createElement('div');
-                heart.innerHTML = '❤️';
-                heart.classList.add('heart');
+                const iconFloat = document.createElement('div');
+                iconFloat.innerHTML = '❤️';
+                iconFloat.classList.add('iconFloat');
 
                 const startX = Math.random() * window.innerWidth;
-                heart.style.left = `${startX}px`;
-                heart.style.bottom = '-50px';
+                iconFloat.style.left = `${startX}px`;
+                iconFloat.style.bottom = '-50px';
 
                 const size = Math.random() * 30 + 20;
-                heart.style.fontSize = `${size}px`;
+                iconFloat.style.fontSize = `${size}px`;
 
                 const color = colors[Math.floor(Math.random() * colors.length)];
-                heart.style.color = color;
+                iconFloat.style.color = color;
 
                 const duration = Math.random() * 6 + 4;
-                heart.style.animationDuration = `${duration}s`;
+                iconFloat.style.animationDuration = `${duration}s`;
 
-                document.body.appendChild(heart);
+                document.body.appendChild(iconFloat);
 
                 setTimeout(() => {
-                    heart.remove();
+                    iconFloat.remove();
                 }, duration * 1000);
             }, 300);
         }
     </script>
+
+<audio id="partySound" src="beyond-the-time-main-7425.mp3" preload="auto"></audio>
+
 </body>
 </html>
